@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hex_Color</title>  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="hex-colors">
+                <h1>Click the button below to generate a random mix of two colors with their respective HEX codes.</h1>
+                <h2>background: linear-gradient(to right, #<span id="hexcode1">ffffff</span>, #<span id="hexcode2">ffffff</span>);</h2>
+                
+                <button onclick="ChangeColor()" type="button" class="btn btn-primary" style="margin-top: 20%">Click Here !</button>
+            </div> 
+        </div>
+        
+        
+        <script>
+            function ChangeColor()
+            {
+                  var hex_numbers = ["0","1","2","3","4","5","6","7","8","9","A", "B", "C", "D", "E", "F"];
+                  var hexcode1 = "";
+                  var hexcode2 = "";
+                  var random_index = 0;
+
+                  for(let i = 0; i < 6;i++){
+                    random_index = Math.floor(Math.random() * hex_numbers.length);
+                      hexcode1 += hex_numbers[random_index];
+                    random_index = Math.floor(Math.random() * hex_numbers.length);
+                      hexcode2 += hex_numbers[random_index];
+  }
+
+  document.body.style.background = `linear-gradient(to right, #${hexcode1}, #${hexcode2})`;
+  document.querySelector("#hexcode1").textContent = hexcode1;
+  document.querySelector("#hexcode2").textContent = hexcode2;
+            }
+        </script>
+    </body>   
+</html>
